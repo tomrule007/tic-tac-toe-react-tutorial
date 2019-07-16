@@ -4,7 +4,6 @@ import './index.css';
 class Square extends React.Component {
     render() {
         return (
-            // testing two
             <button className="square">
                 {this.props.value}
             </button>
