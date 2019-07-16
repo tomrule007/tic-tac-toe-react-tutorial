@@ -89,14 +89,16 @@ class Game extends React.Component {
                 if (cur[i] !== pre[i]) return i;
             }
         }
+
         const moves = history.map((step, move) => {
             const desc = move ?
                 'Go to move #' + move + getColRow(getLastMoveIndex(history[move], history[move - 1])) :
                 'Go to game start';
-
             return (
                 <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button onClick={() => this.jumpTo(move)}>
+                        {move === this.state.stepNumber ? (<b> {desc}</b>) : desc}
+                    </button>
                 </li>
             );
         });
